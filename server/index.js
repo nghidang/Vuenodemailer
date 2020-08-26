@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -7,6 +8,10 @@ const app = express();
 
 
 
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 app.use(morgan('dev'));
 app.use(cors());
